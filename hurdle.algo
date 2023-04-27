@@ -1,0 +1,66 @@
+Godwin Nwachukwu  to  Everyone 10:58 PM
+function hurdleRace(k, height) {
+    // Write your code here
+    
+    // 1. find the max_height in the height array
+    let maxHeight = height[0];
+    for (let i = 1; i < height.length; i++) {
+        if ( maxHeight < height[i]) {
+            maxHeight = height[i];
+        }
+    }
+    // 2. compare max_height value to k, if greater than k, subtract k from               max_height,
+        // else return zero
+    if (maxHeight > k) {
+        return maxHeight - k;
+    }
+    return 0;
+}
+
+Godwin Nwachukwu  to  Everyone 10:58 PM
+// max number calculation
+let height = [10, 4, 8, 11, 20];
+
+function max_number(heightArr) {
+  let maxHeight = heightArr[0];
+  
+  for (let i = 1; i < heightArr.length; i++) {
+    if (maxHeight > heightArr[i]) {
+      maxHeight = heightArr[i];
+    }
+  }
+  
+  return maxHeight;
+}
+
+let finalanswer = max_number(height);
+console.log(finalanswer);
+console.log(max_number(height));
+
+// at i = 1;
+// maxheight = 10
+// if (maxheight < heightarr[1]){skip}
+// maxheight = 10
+// i++;
+
+// at i = 2
+// maxheight = 10
+// if (maxheight < heightarr[2]){skip}
+// maxheight = 10
+// i++;
+
+// at i = 3
+// maxheight = 10
+// if (maxheight < heightarr[3]){maxheight = heightarr[3]}
+// maxheight = 11
+// i++;
+
+// at i = 4
+// maxheight = 11
+// if (maxheight < heightarr[4]){maxheight = heightarr[4]}
+// maxheight = 20;
+// i++;
+
+// at i = 5
+//forloop stops running
+// maxheight = 20;
