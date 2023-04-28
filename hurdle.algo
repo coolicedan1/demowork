@@ -64,3 +64,28 @@ console.log(max_number(height));
 // at i = 5
 //forloop stops running
 // maxheight = 20;
+
+
+
+
+// algo_checkpoint
+// senLength, numWords, numVowels, lengthCounter, wordCounter, vowelCounter.
+
+let phrase = 'the quick brown fox jump over the lazy dog.'
+
+function readSentence(sentence) {
+ let senLength = sentence.length;
+ let wordCounter = 0;
+ let vowels = ['a', 'e', 'i', 'o', 'u'];
+  let phrase1 = sentence.split(' ');
+  console.log(phrase1)
+ for ( i=0; i<sentence.length; i++) {
+   // if (sentence[i] = ' '){
+   //   wordCounter = wordCounter + 1;
+   // }
+   // console.log(sentence[i])
+ } 
+ return [senLength, phrase1.length];
+}
+
+console.log(readSentence(phrase)) 
