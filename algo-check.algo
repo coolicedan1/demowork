@@ -1,0 +1,32 @@
+ALGORITHM checkpoint_algorithms
+VAR
+
+  numberChar : = INTEGER
+  numberWords : = INTEGER
+  numberVowels : = INTEGER
+  sentc : = STRING
+
+BEGIN
+
+  let numberChar : = 0
+  let numberWords : = 0
+  let numberVowels : = 0
+  let vowels : = ["a", "e", "i", "o", "u"]
+  sentc : = ("the quick brown fox jump over the lazy dog.")
+  read (sentc)
+
+IF (sentc =  " ") THEN
+  numberWords : = numberWords + 1
+END_IF
+
+IF (sentc in ["a","e","u","i","o"]) THEN
+  numberVowels : = numberVowels + 1 
+
+  FOR numberChar FROM 0 TO  STEP 1  DO
+    for (c = 0; i < sentence.length; )
+    numberChar : = numberChar + 1
+  END_FOR
+
+Write (numberVowels, numberChar, numberWords)
+
+END
