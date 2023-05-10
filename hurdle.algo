@@ -89,3 +89,145 @@ function readSentence(sentence) {
 }
 
 console.log(readSentence(phrase)) 
+
+// // version 1
+function miniMaxSum(arr) {
+  function findMax(ar) {
+    let max = ar[0];
+    for (let e = 0; e < ar.length; e++) {
+      if (max < ar[e]) {
+          max = ar[e];
+      }
+    }
+    return max;
+  }
+
+  function findMin(ar) {
+    let min = ar[0];
+    for (let e = 0; e < ar.length; e++) {
+      if (min > ar[e]) {
+          min = ar[e];
+      }
+    }
+    return min;
+  }
+  
+  let nums = [];
+  for (let i = 0; i < arr.length; i++) {
+    let arr1 = arr;
+    let res = [];
+    let currentValue = i;
+    for (let j = 0; j < arr1.length; j++) {
+      if (currentValue !== j) {
+        res.push(arr1[j]);
+      }
+      console.log(res)
+    }
+    let value = 0;
+    for (let e = 0; e < res.length; e++) {
+      value += res[e];
+    }
+    nums.push(value);
+    console.log(res)
+  }
+  console.log(nums)
+  let finalResult = [findMin(nums), findMax(nums)];
+  console.log(finalResult[0], finalResult[1]);
+}
+
+// At i = 0
+  // nums = []
+  // res = []
+  // currentvalue = 0
+  // j = 0
+  // if 0 isnotequal to 0 (false)
+  // res = []
+  // j = 1
+  // if 0 isnotequal to 1 (true)
+  // // res.push(56)
+  // res = [56]
+  // j = 2
+  // if 0 isnotequal to 2 (true)
+  // // res.push(90)
+  // res = [56, 90]
+  // j = 3
+  // if 0 isnotequal to 3 (true)
+  // // res.push(150)
+  // res = [56, 90, 150]
+  // j = 4
+  // if 0 isnotequal to 4 (true)
+  // // res.push(5)
+  // res = [56, 90, 150, 5]
+  // value = 0
+  // value = 301
+  // nums.push(301)
+  // nums = [301]
+
+// At i = 1
+  // nums = []
+  // res = []
+  // currentvalue = 1
+  // j = 0
+  // if 1 isnotequal to 0 (true)
+  // res.push(80)
+  // res = [80]
+  // j = 1
+  // if 1 isnotequal to 1 (false)
+  // res = [80]
+  // j = 2
+  // if 1 isnotequal to 2 (true)
+  // // res.push(90)
+  // res = [80, 90]
+  // j = 3
+  // if 1 isnotequal to 3 (true)
+  // // res.push(150)
+  // res = [80, 90, 150]
+  // j = 4
+  // if 1 isnotequal to 4 (true)
+  // // res.push(5)
+  // res = [80, 90, 150, 5]
+  // value = 0
+  // value = 325
+  // nums.push(325)
+  // nums = [301, 325]
+
+
+
+// version 2
+function miniMaxSum(integerArray) {
+  let summedUpIntegerArray = [];
+  for (let i = 0; i < integerArray.length; i++) {
+    let value = 0;
+    let currentIndex = i;
+    for (let j = 0; j < integerArray.length; j++) {
+      let nestedIndex = j;
+      if (currentIndex !== nestedIndex) {
+        value += integerArray[nestedIndex];
+      }
+    }
+    summedUpIntegerArray.push(value);
+    console.log(summedUpIntegerArray);
+  } 
+  
+  let resultArray = [Math.min(...summedUpIntegerArray), Math.max(...summedUpIntegerArray)];
+  console.log(resultArray[0], resultArray[1]);
+}
+
+// final version 3
+function miniMaxSum(integerArray) {
+  // sum of numbers in integer array
+  let totalSum = integerArray.reduce((a, b) => a + b, 0);
+
+  // dot map function to get the sum of only 4 numbers for each excluding current index
+  let summedUpIntegerArray = integerArray.map((currentValue) => {
+    let sumWithoutCurrent = totalSum - currentValue;
+    return sumWithoutCurrent;
+  });
+
+  console.log(summedUpIntegerArray);
+  // find the minimum and maximum numbers of summedUpIntarr and package it as an array
+  let resultArray = [Math.min(...summedUpIntegerArray), Math.max(...summedUpIntegerArray)];
+  console.log(resultArray[0], resultArray[1]);
+}
+
+miniMaxSum([80, 56, 90, 150, 5]);
